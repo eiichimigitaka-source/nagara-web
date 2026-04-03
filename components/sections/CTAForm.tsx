@@ -48,13 +48,24 @@ export default function CTAForm() {
     setError("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL!, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          お子様のお名前: form.childName,
+          学年: form.grade,
+          保護者のお名前: form.parentName,
+          電話番号: form.phone,
+          メールアドレス: form.email,
+          希望日時: form.preferredDate,
+          メッセージ: form.message,
+        }),
       });
       const data = await res.json();
-      if (!res.ok) {
+      if (!res.ok || !data.ok) {
         setError(data.error || "送信に失敗しました");
       } else {
         setSubmitted(true);
