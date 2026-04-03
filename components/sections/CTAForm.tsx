@@ -92,12 +92,12 @@ export default function CTAForm() {
               <span>
                 Instagram{" "}
                 <a
-                  href="https://www.instagram.com/nagara_steamlab/"
+                  href="https://www.instagram.com/nagara_robot/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-orange-500 hover:underline font-medium"
                 >
-                  @nagara_steamlab
+                  @nagara_robot
                 </a>{" "}
                 もぜひフォローしてください！
               </span>
@@ -152,7 +152,7 @@ export default function CTAForm() {
                   className={inputClass}
                 >
                   <option value="">選択してください</option>
-                  {["小学1年生", "小学2年生", "小学3年生", "小学4年生", "小学5年生", "小学6年生"].map((g) => (
+                  {["年中", "年長", "小学1年生", "小学2年生", "小学3年生", "小学4年生", "小学5年生", "小学6年生", "中学1年生", "中学2年生", "中学3年生"].map((g) => (
                     <option key={g} value={g}>{g}</option>
                   ))}
                 </select>

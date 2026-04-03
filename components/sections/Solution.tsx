@@ -12,7 +12,7 @@ const points = [
   {
     icon: "👩‍🏫",
     title: "少人数制で一人ひとりに寄り添う",
-    desc: "各回4〜6名の少人数制。お子さんのペースと興味に合わせた丁寧な指導を行います。",
+    desc: "各回1〜6名の少人数制。お子さんのペースと興味に合わせた丁寧な指導を行います。",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Solution() {
 
             <p className="text-stone-600 leading-relaxed mb-8 text-lg">
               教科書もテストもありません。
-              ロボットを動かし、実験し、AIを体験する中で、
+              ロボットを動かし、プログラミングし、工作を体験する中で、
               子どもたちは自然と
               <strong className="text-stone-700">
                 「考える力」「創る力」「挑戦する力」

@@ -1,47 +1,58 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-white pt-20">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-200/40 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-200/25 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/image/steamlab.mp4" type="video/mp4" />
+      </video>
 
-      <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24 w-full">
+      {/* Gradient overlay: top dark for header, center semi-dark for readability, bottom dark for fade */}
+      <div className="absolute inset-0 bg-orange-950/30 pointer-events-none" />
+
+      {/* Content */}
+      <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24 w-full pt-32">
         <div className="max-w-2xl">
           {/* Live badge */}
-          <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-bold px-4 py-2 rounded-full mb-6 border border-orange-200">
+          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm font-bold px-4 py-2 rounded-full mb-6 border border-white/30">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-400" />
             </span>
             無料体験 受付中
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-stone-800 leading-tight mb-6">
-            <span className="text-orange-500">「好き」</span>が見つかる。
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg">
+            <span className="text-orange-400">「好き」</span>が見つかる。
             <br />
-            <span className="text-teal-600">「できた」</span>が積み重なる。
+            <span className="text-teal-300">「できた」</span>が積み重なる。
           </h1>
 
           {/* Sub headline */}
-          <p className="text-xl text-stone-600 leading-relaxed mb-3">
+          <p className="text-xl text-white/90 leading-relaxed mb-3 drop-shadow">
             岐阜市長良の
-            <span className="font-bold text-stone-700">STEAM教育教室</span>が、
+            <span className="font-bold text-white">STEAM教育教室</span>が、
             <br className="hidden sm:block" />
             はじめての方向けに
-            <span className="font-bold text-orange-600">無料体験</span>
+            <span className="font-bold text-orange-300">無料体験</span>
             を開催しています。
           </p>
-          <p className="text-base text-stone-500 mb-8">
-            ロボット・実験・AIを通じて、お子さんの好奇心に火をつけます。
+          <p className="text-base text-white/70 mb-8">
+            ロボット・マイクラ・工作を通じて、お子さんの好奇心に火をつけます。
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
               href="#form"
-              className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-lg shadow-orange-200 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-200"
+              className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-lg shadow-black/30 transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               無料体験に申し込む
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,7 +61,7 @@ export default function Hero() {
             </a>
             <a
               href="#features"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-stone-200 transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white font-bold text-lg px-8 py-4 rounded-2xl border border-white/30 transition-all hover:-translate-y-0.5"
             >
               体験内容を見る
             </a>
@@ -60,37 +71,19 @@ export default function Hero() {
           <div className="flex flex-wrap gap-3">
             {[
               { icon: "📍", text: "岐阜市長良" },
-              { icon: "🏫", text: "小学生専門" },
-              { icon: "👥", text: "少人数制（4〜6名）" },
+              { icon: "🏫", text: "４歳から中学生まで" },
+              { icon: "👥", text: "少人数制（1〜6名）" },
               { icon: "✅", text: "入会強制なし" },
             ].map((badge) => (
               <div
                 key={badge.text}
-                className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm text-stone-600 text-sm font-medium px-3 py-1.5 rounded-full border border-stone-200 shadow-sm"
+                className="flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white text-sm font-medium px-3 py-1.5 rounded-full border border-white/25"
               >
                 <span>{badge.icon}</span>
                 <span>{badge.text}</span>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Floating cards (desktop only) */}
-        <div className="hidden lg:flex absolute right-4 xl:right-8 top-1/2 -translate-y-1/2 flex-col gap-4 w-64">
-          {[
-            { icon: "🤖", title: "ロボットプログラミング", desc: "命令を組んでロボットを動かす", border: "border-orange-100" },
-            { icon: "🔬", title: "科学実験", desc: "身近な素材で「なぜ？」を探る", border: "border-teal-100", offset: "ml-8" },
-            { icon: "🧠", title: "AI体験", desc: "最新AIツールに触れて学ぶ", border: "border-purple-100" },
-          ].map((card) => (
-            <div
-              key={card.title}
-              className={`bg-white rounded-2xl shadow-xl p-5 border ${card.border} ${card.offset ?? ""}`}
-            >
-              <div className="text-3xl mb-2">{card.icon}</div>
-              <h3 className="font-bold text-stone-700 text-sm mb-1">{card.title}</h3>
-              <p className="text-xs text-stone-500">{card.desc}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

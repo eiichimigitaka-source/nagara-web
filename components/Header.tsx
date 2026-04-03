@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,13 +21,14 @@ export default function Header() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <div
-          className={`font-black text-lg transition-colors ${
-            scrolled ? "text-orange-600" : "text-stone-800"
-          }`}
-        >
-          ながら STEAM LAB
-        </div>
+        <Image
+          src="/image/logo.png"
+          alt="ながら STEAM LAB"
+          width={160}
+          height={48}
+          className="h-10 w-auto object-contain"
+          priority
+        />
         <a
           href="#form"
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"

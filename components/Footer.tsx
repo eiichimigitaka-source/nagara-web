@@ -1,12 +1,18 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-stone-800 text-stone-300 py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-white font-black text-lg mb-3">
-              ながら STEAM LAB
-            </h3>
+            <Image
+              src="/image/logo.png"
+              alt="ながら STEAM LAB"
+              width={160}
+              height={48}
+              className="h-10 w-auto object-contain mb-3"
+            />
             <p className="text-sm leading-relaxed">
               岐阜市長良のSTEAM教育教室。
               <br />
@@ -23,12 +29,12 @@ export default function Footer() {
               <span className="block">
                 Instagram:{" "}
                 <a
-                  href="https://www.instagram.com/nagara_steamlab/"
+                  href="https://www.instagram.com/nagara_robot/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-orange-400 hover:text-orange-300 transition-colors"
                 >
-                  @nagara_steamlab
+                  @nagara_robot
                 </a>
               </span>
             </p>
@@ -54,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/nagara_steamlab/"
+                  href="https://www.instagram.com/nagara_robot/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"

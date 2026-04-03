@@ -55,19 +55,18 @@ export default function Pricing() {
             <p className="font-bold text-stone-400 text-sm mb-2">STEP 2</p>
             <h3 className="text-2xl font-black text-stone-700 mb-1">月謝プラン</h3>
             <div className="flex items-end gap-1 mb-1">
-              <span className="text-4xl font-black text-stone-700">¥8,800</span>
-              <span className="text-stone-500 pb-1">/月（税込）</span>
+              <span className="text-4xl font-black text-stone-700">¥7,700</span>
+              <span className="text-stone-500 pb-1">/月（税込）〜</span>
             </div>
             <p className="text-stone-400 text-xs mb-4">
               ※ コース・内容により異なります
             </p>
             <ul className="space-y-2 mb-6">
               {[
-                "週1回（月4回）",
-                "教材費込み",
+                "月2回〜",
+                "教材費別途",
                 "振替制度あり",
                 "入会金: 11,000円（税込）",
-                "兄弟割引あり",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-stone-500">
                   <span className="text-teal-500 font-bold">✓</span>
