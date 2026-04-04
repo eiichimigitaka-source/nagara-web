@@ -1,14 +1,26 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background video */}
+      {/* Background video: スマホ用（縦長） */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover block sm:hidden"
+      >
+        <source src="/image/steamlab_sp.mp4" type="video/mp4" />
+      </video>
+
+      {/* Background video: デスクトップ用（横長） */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover hidden sm:block"
       >
         <source src="/image/steamlab.mp4" type="video/mp4" />
       </video>
