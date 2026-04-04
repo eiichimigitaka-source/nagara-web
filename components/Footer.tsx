@@ -52,6 +52,14 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="/schedule"
+                  className="hover:text-white transition-colors"
+                >
+                  今月の授業
+                </a>
+              </li>
+              <li>
+                <a
                   href="#faq"
                   className="hover:text-white transition-colors"
                 >
