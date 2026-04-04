@@ -45,8 +45,8 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg">
-            <span className="block whitespace-nowrap"><span className="text-orange-400">「好き」</span>が見つかる。</span>
-            <span className="block whitespace-nowrap"><span className="text-teal-300">「できた」</span>が積み重なる。</span>
+            <span className="block"><span className="text-orange-400">「好き」</span>が見つかる。</span>
+            <span className="block"><span className="text-teal-300">「できた」</span>が積み重なる。</span>
           </h1>
 
           {/* Sub headline */}
