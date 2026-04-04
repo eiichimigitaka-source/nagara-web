@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,14 +22,16 @@ export default function Header() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <Image
-          src="/image/logo.png"
-          alt="ながら STEAM LAB"
-          width={466}
-          height={67}
-          className="h-8 w-auto object-contain sm:h-10"
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/image/logo.png"
+            alt="ながら STEAM LAB"
+            width={466}
+            height={67}
+            className="h-8 w-auto object-contain sm:h-10"
+            priority
+          />
+        </Link>
         <a
           href="#form"
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"

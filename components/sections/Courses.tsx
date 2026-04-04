@@ -20,7 +20,7 @@ const mainCourses = [
     subtitle: "プログラミングデビュー",
     name: "自考力キッズ",
     target: "小学1年生〜3年生",
-    price: "11,000円〜（税込）",
+    price: "11,000円（税込）",
     frequency: "週1回",
     note: "別途教材費が必要です",
     features: [
@@ -55,7 +55,7 @@ const optionCourses = [
     subtitle: "ロボット技術者を目指せ",
     name: "エジソンアカデミー",
     target: "小学4年生〜",
-    price: "12,100円〜（税込）",
+    price: "12,100円（税込）",
     frequency: "週1回",
     note: "別途教材費が必要です",
     features: [
@@ -83,6 +83,22 @@ const optionCourses = [
     comingSoon: true,
   },
 ];
+
+function PriceText({ price }: { price: string }) {
+  // 「円〜?（...）」を小さく表示する
+  const parts = price.split(/(円[〜]?（[^）]*）)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        /^円[〜]?（[^）]*）$/.test(part) ? (
+          <span key={i} className="text-base font-bold text-stone-500">{part}</span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
 
 const accentMap: Record<string, { bg: string; border: string; badge: string; check: string; tag: string }> = {
   orange: {
@@ -168,7 +184,7 @@ export default function Courses() {
 
                   {/* Price */}
                   <div className="mb-4">
-                    <span className="text-2xl font-black text-stone-700">{course.price}</span>
+                    <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
                     <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
                   </div>
 
@@ -249,7 +265,7 @@ export default function Courses() {
                     対象：{course.target}
                   </p>
                   <div className="mb-4">
-                    <span className="text-2xl font-black text-stone-700">{course.price}</span>
+                    <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
                     <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
                   </div>
                   <ul className="space-y-2 flex-1">
