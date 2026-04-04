@@ -20,16 +20,29 @@ function formatDate(dateStr: string): string {
 
 function SkeletonCard() {
   return (
-    <div className="bg-white border border-stone-200 rounded-2xl overflow-hidden flex flex-col animate-pulse">
-      <div className="bg-stone-200 h-44 w-full" />
-      <div className="p-5 flex flex-col gap-3">
-        <div className="h-3 bg-stone-200 rounded w-1/3" />
-        <div className="h-5 bg-stone-200 rounded w-full" />
-        <div className="h-5 bg-stone-200 rounded w-4/5" />
-        <div className="h-3 bg-stone-200 rounded w-full mt-1" />
-        <div className="h-3 bg-stone-200 rounded w-2/3" />
+    <>
+      {/* スマホ: 横並びスケルトン */}
+      <div className="flex sm:hidden gap-3 items-start bg-white border border-stone-200 rounded-2xl p-3 animate-pulse">
+        <div className="bg-stone-200 rounded-xl w-24 h-24 shrink-0" />
+        <div className="flex flex-col gap-2 flex-1 pt-1">
+          <div className="h-3 bg-stone-200 rounded w-1/3" />
+          <div className="h-4 bg-stone-200 rounded w-full" />
+          <div className="h-4 bg-stone-200 rounded w-4/5" />
+          <div className="h-3 bg-stone-200 rounded w-full" />
+        </div>
       </div>
-    </div>
+      {/* デスクトップ: 縦カードスケルトン */}
+      <div className="hidden sm:flex flex-col bg-white border border-stone-200 rounded-2xl overflow-hidden animate-pulse">
+        <div className="bg-stone-200 h-44 w-full" />
+        <div className="p-5 flex flex-col gap-3">
+          <div className="h-3 bg-stone-200 rounded w-1/3" />
+          <div className="h-5 bg-stone-200 rounded w-full" />
+          <div className="h-5 bg-stone-200 rounded w-4/5" />
+          <div className="h-3 bg-stone-200 rounded w-full mt-1" />
+          <div className="h-3 bg-stone-200 rounded w-2/3" />
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -76,7 +89,7 @@ export default function NoteArticles() {
         )}
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {loading
             ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
             : articles.map((article) => (
@@ -85,51 +98,55 @@ export default function NoteArticles() {
                   href={article.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white border border-stone-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all group"
+                  className="group bg-white border border-stone-200 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all
+                    flex items-start gap-3 p-3
+                    sm:flex-col sm:items-stretch sm:p-0"
                 >
                   {/* Thumbnail */}
-                  <div className="relative h-44 w-full bg-stone-100 overflow-hidden">
+                  <div className="relative bg-stone-100 overflow-hidden shrink-0
+                    w-24 h-24 rounded-xl
+                    sm:w-full sm:h-44 sm:rounded-none">
                     {article.thumbnail ? (
                       <Image
                         src={article.thumbnail}
                         alt={article.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 640px) 96px, (max-width: 1024px) 50vw, 33vw"
                         unoptimized
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-orange-50">
-                        <span className="text-5xl">📝</span>
+                        <span className="text-3xl sm:text-5xl">📝</span>
                       </div>
                     )}
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 flex flex-col flex-1">
+                  <div className="flex flex-col flex-1 min-w-0 sm:p-5">
                     {/* Date */}
                     {article.pubDate && (
-                      <p className="text-xs text-stone-400 font-medium mb-2">
+                      <p className="text-xs text-stone-400 font-medium mb-1 sm:mb-2">
                         {formatDate(article.pubDate)}
                       </p>
                     )}
 
                     {/* Title */}
-                    <h3 className="font-black text-stone-800 text-base leading-snug mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
+                    <h3 className="font-black text-stone-800 text-sm sm:text-base leading-snug mb-1 sm:mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
                       {article.title}
                     </h3>
 
                     {/* Description */}
                     {article.description && (
-                      <p className="text-stone-500 text-sm leading-relaxed line-clamp-3 flex-1">
+                      <p className="text-stone-500 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1">
                         {article.description}
                       </p>
                     )}
 
                     {/* Link label */}
-                    <div className="mt-4 flex items-center gap-1 text-teal-600 text-sm font-bold">
+                    <div className="mt-2 sm:mt-4 flex items-center gap-1 text-teal-600 text-xs sm:text-sm font-bold">
                       記事を読む
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </div>
