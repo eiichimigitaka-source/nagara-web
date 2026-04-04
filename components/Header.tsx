@@ -24,9 +24,9 @@ export default function Header() {
         <Image
           src="/image/logo.png"
           alt="ながら STEAM LAB"
-          width={120}
-          height={36}
-          className="h-7 w-auto object-contain sm:h-9"
+          width={466}
+          height={67}
+          className="h-8 w-auto object-contain sm:h-10"
           priority
         />
         <a
