@@ -24,16 +24,17 @@ export default function Header() {
         <Image
           src="/image/logo.png"
           alt="ながら STEAM LAB"
-          width={160}
-          height={48}
-          className="h-10 w-auto object-contain"
+          width={120}
+          height={36}
+          className="h-7 w-auto object-contain sm:h-9"
           priority
         />
         <a
           href="#form"
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
         >
-          無料体験に申し込む
+          <span className="sm:hidden">無料体験</span>
+          <span className="hidden sm:inline">無料体験に申し込む</span>
         </a>
       </div>
     </header>
