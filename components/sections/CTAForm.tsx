@@ -55,6 +55,7 @@ export default function CTAForm() {
           Accept: "application/json",
         },
         body: JSON.stringify({
+          _subject: "【ながらSTEAM LAB】無料体験お申し込みがありました",
           お子様のお名前: form.childName,
           学年: form.grade,
           保護者のお名前: form.parentName,
