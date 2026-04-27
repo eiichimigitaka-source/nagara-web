@@ -80,6 +80,8 @@ const optionCourses = [
   {
     icon: "🌐",
     name: "教室で見守るオンライン英会話",
+    image: "",
+    imageHeight: 400,
     target: "検討中",
     price: "—",
     frequency: "—",
