@@ -41,6 +41,15 @@ export default function Access() {
               </p>
             </div>
           </div>
+          <div className="px-6 py-5 border-t border-stone-200">
+            <a
+              href="tel:0582954806"
+              className="flex items-center justify-center gap-3 w-full bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white font-bold text-xl rounded-xl py-4 transition-colors"
+            >
+              <span>📞</span>
+              058-295-4806
+            </a>
+          </div>
         </div>
       </div>
     </section>

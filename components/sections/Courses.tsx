@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 const mainCourses = [
   {
     icon: "🌱",
     subtitle: "はじめてのSTEAM教育",
     name: "First STEAM",
+    image: "/image/courses/first-steam.png",
+    imageHeight: 400,
     target: "年中（4歳）〜小学1年生",
     price: "12,100円（税込）",
     frequency: "月3回",
@@ -19,6 +23,8 @@ const mainCourses = [
     icon: "🧠",
     subtitle: "プログラミングデビュー",
     name: "自考力キッズ",
+    image: "/image/courses/jikoryoku-kids.png",
+    imageHeight: 400,
     target: "小学1年生〜3年生",
     price: "11,000円（税込）",
     frequency: "週1回",
@@ -35,6 +41,8 @@ const mainCourses = [
     icon: "💻",
     subtitle: "マイクラでプログラミング上達",
     name: "V-code",
+    image: "/image/courses/v-code.png",
+    imageHeight: 400,
     target: "小学3年生〜",
     price: "7,700円（月2回）/ 11,000円〜（週1回）",
     frequency: "隔週 or 週1回",
@@ -54,6 +62,8 @@ const optionCourses = [
     icon: "🤖",
     subtitle: "ロボット技術者を目指せ",
     name: "エジソンアカデミー",
+    image: "/image/courses/edison.png",
+    imageHeight: 400,
     target: "小学4年生〜",
     price: "12,100円（税込）",
     frequency: "週1回",
@@ -165,45 +175,56 @@ export default function Courses() {
               return (
                 <div
                   key={course.name}
-                  className={`${a.bg} ${a.border} border rounded-2xl p-6 relative flex flex-col`}
+                  className={`${a.bg} ${a.border} border rounded-2xl relative flex flex-col overflow-hidden`}
                 >
+                  {/* Image */}
+                  <Image
+                    src={course.image}
+                    alt={course.name}
+                    width={800}
+                    height={course.imageHeight}
+                    className="w-full object-cover rounded-t-2xl"
+                  />
+
                   {/* Badge */}
                   <span className={`${a.badge} text-white text-xs font-bold px-2.5 py-1 rounded-full absolute top-4 right-4`}>
                     {course.badge}
                   </span>
 
-                  {/* Icon & name */}
-                  <div className="text-4xl mb-3">{course.icon}</div>
-                  <p className="text-stone-500 text-sm font-medium mb-0.5">{course.subtitle}</p>
-                  <h3 className="font-black text-stone-800 text-xl mb-1">{course.name}</h3>
+                  <div className="p-6 flex flex-col flex-1">
+                    {/* Icon & name */}
+                    <div className="text-4xl mb-3">{course.icon}</div>
+                    <p className="text-stone-500 text-sm font-medium mb-0.5">{course.subtitle}</p>
+                    <h3 className="font-black text-stone-800 text-xl mb-1">{course.name}</h3>
 
-                  {/* Target */}
-                  <p className={`text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-4 w-fit ${a.tag}`}>
-                    対象：{course.target}
-                  </p>
-
-                  {/* Price */}
-                  <div className="mb-4">
-                    <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
-                    <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
-                  </div>
-
-                  {/* Features */}
-                  <ul className="space-y-2 flex-1">
-                    {course.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-stone-600">
-                        <span className={`${a.check} font-black mt-0.5 shrink-0`}>✓</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Note */}
-                  {course.note && (
-                    <p className="text-xs text-stone-400 mt-4 border-t border-stone-200 pt-3">
-                      ※ {course.note}
+                    {/* Target */}
+                    <p className={`text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-4 w-fit ${a.tag}`}>
+                      対象：{course.target}
                     </p>
-                  )}
+
+                    {/* Price */}
+                    <div className="mb-4">
+                      <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
+                      <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-2 flex-1">
+                      {course.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-stone-600">
+                          <span className={`${a.check} font-black mt-0.5 shrink-0`}>✓</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Note */}
+                    {course.note && (
+                      <p className="text-xs text-stone-400 mt-4 border-t border-stone-200 pt-3">
+                        ※ {course.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -253,34 +274,45 @@ export default function Courses() {
               return (
                 <div
                   key={course.name}
-                  className={`${a.bg} ${a.border} border rounded-2xl p-6 relative flex flex-col`}
+                  className={`${a.bg} ${a.border} border rounded-2xl relative flex flex-col overflow-hidden`}
                 >
+                  {/* Image */}
+                  <Image
+                    src={course.image}
+                    alt={course.name}
+                    width={800}
+                    height={course.imageHeight}
+                    className="w-full object-cover rounded-t-2xl"
+                  />
+
                   <span className={`${a.badge} text-white text-xs font-bold px-2.5 py-1 rounded-full absolute top-4 right-4`}>
                     {course.badge}
                   </span>
-                  <div className="text-4xl mb-3">{course.icon}</div>
-                  <p className="text-stone-500 text-sm font-medium mb-0.5">{course.subtitle}</p>
-                  <h3 className="font-black text-stone-800 text-xl mb-1">{course.name}</h3>
-                  <p className={`text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-4 w-fit ${a.tag}`}>
-                    対象：{course.target}
-                  </p>
-                  <div className="mb-4">
-                    <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
-                    <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
-                  </div>
-                  <ul className="space-y-2 flex-1">
-                    {course.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-stone-600">
-                        <span className={`${a.check} font-black mt-0.5 shrink-0`}>✓</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  {course.note && (
-                    <p className="text-xs text-stone-400 mt-4 border-t border-stone-200 pt-3">
-                      ※ {course.note}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="text-4xl mb-3">{course.icon}</div>
+                    <p className="text-stone-500 text-sm font-medium mb-0.5">{course.subtitle}</p>
+                    <h3 className="font-black text-stone-800 text-xl mb-1">{course.name}</h3>
+                    <p className={`text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-4 w-fit ${a.tag}`}>
+                      対象：{course.target}
                     </p>
-                  )}
+                    <div className="mb-4">
+                      <span className="text-2xl font-black text-stone-700"><PriceText price={course.price} /></span>
+                      <span className="text-stone-400 text-sm ml-1">・{course.frequency}</span>
+                    </div>
+                    <ul className="space-y-2 flex-1">
+                      {course.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-stone-600">
+                          <span className={`${a.check} font-black mt-0.5 shrink-0`}>✓</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    {course.note && (
+                      <p className="text-xs text-stone-400 mt-4 border-t border-stone-200 pt-3">
+                        ※ {course.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -300,37 +332,46 @@ export default function Courses() {
             href="https://tajiro.jp/leggodt/class/nagara/top.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="block max-w-3xl mx-auto bg-white border-2 border-stone-200 hover:border-orange-300 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 items-start sm:items-center transition-all hover:shadow-lg hover:-translate-y-0.5 group"
+            className="block max-w-3xl mx-auto bg-white border-2 border-stone-200 hover:border-orange-300 rounded-2xl overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5 group"
           >
-            <div className="text-5xl shrink-0">🎨</div>
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <p className="text-stone-500 text-sm font-medium">AI時代に必要な創造性を育む</p>
-                <h3 className="font-black text-stone-800 text-xl">絵画造形教室アトリエレゴット</h3>
-                <span className="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-1 rounded-full">
-                  外部サイト
-                </span>
+            <Image
+              src="/image/courses/leggodt.png"
+              alt="絵画造形教室アトリエレゴット"
+              width={800}
+              height={400}
+              className="w-full object-cover rounded-t-2xl"
+            />
+            <div className="p-6 flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+              <div className="text-5xl shrink-0">🎨</div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <p className="text-stone-500 text-sm font-medium">AI時代に必要な創造性を育む</p>
+                  <h3 className="font-black text-stone-800 text-xl">絵画造形教室アトリエレゴット</h3>
+                  <span className="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-1 rounded-full">
+                    外部サイト
+                  </span>
+                </div>
+                <p className="text-xs font-bold text-stone-400 mb-3">対象：年中（4歳）〜小学6年生</p>
+                <p className="text-sm text-stone-600 mb-3">
+                  絵画造形を通じて想像力を育む、STEAM教育のArt部門。月3回・5,500円（税込）。
+                </p>
+                <ul className="space-y-1">
+                  <li className="flex items-center gap-2 text-sm text-stone-500">
+                    <span className="text-orange-400 font-black">✓</span>
+                    絵画・造形を楽しみながら想像力を養う
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-stone-500">
+                    <span className="text-orange-400 font-black">✓</span>
+                    STEAM教育の「Art（芸術）」を専門に学べる
+                  </li>
+                </ul>
               </div>
-              <p className="text-xs font-bold text-stone-400 mb-3">対象：年中（4歳）〜小学6年生</p>
-              <p className="text-sm text-stone-600 mb-3">
-                絵画造形を通じて想像力を育む、STEAM教育のArt部門。月3回・5,500円（税込）。
-              </p>
-              <ul className="space-y-1">
-                <li className="flex items-center gap-2 text-sm text-stone-500">
-                  <span className="text-orange-400 font-black">✓</span>
-                  絵画・造形を楽しみながら想像力を養う
-                </li>
-                <li className="flex items-center gap-2 text-sm text-stone-500">
-                  <span className="text-orange-400 font-black">✓</span>
-                  STEAM教育の「Art（芸術）」を専門に学べる
-                </li>
-              </ul>
-            </div>
-            <div className="shrink-0 flex items-center gap-1 text-orange-500 font-bold text-sm group-hover:gap-2 transition-all">
-              詳細を見る
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <div className="shrink-0 flex items-center gap-1 text-orange-500 font-bold text-sm group-hover:gap-2 transition-all">
+                詳細を見る
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
             </div>
           </a>
         </div>
