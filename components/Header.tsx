@@ -32,25 +32,13 @@ export default function Header() {
             priority
           />
         </Link>
-        <div className="flex items-center gap-2">
-          <a
-            href="https://lin.ee/saFbFFY"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white font-bold text-sm px-4 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            style={{ backgroundColor: "#06C755" }}
-          >
-            <span className="sm:hidden">LINE</span>
-            <span className="hidden sm:inline">LINEで問い合わせ</span>
-          </a>
-          <a
-            href="#form"
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
-          >
-            <span className="sm:hidden">無料体験</span>
-            <span className="hidden sm:inline">無料体験に申し込む</span>
-          </a>
-        </div>
+        <a
+          href="#form"
+          className="bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+        >
+          <span className="sm:hidden">無料体験</span>
+          <span className="hidden sm:inline">無料体験に申し込む</span>
+        </a>
       </div>
     </header>
   );

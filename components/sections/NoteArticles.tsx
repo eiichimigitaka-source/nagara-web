@@ -91,16 +91,20 @@ export default function NoteArticles() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {loading
-            ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
-            : articles.map((article) => (
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className={i >= 3 ? "hidden sm:block" : ""}>
+                  <SkeletonCard />
+                </div>
+              ))
+            : articles.map((article, index) => (
                 <a
                   key={article.link}
                   href={article.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white border border-stone-200 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all
+                  className={`group bg-white border border-stone-200 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all
                     flex items-start gap-3 p-3
-                    sm:flex-col sm:items-stretch sm:p-0"
+                    sm:flex-col sm:items-stretch sm:p-0${index >= 3 ? " hidden sm:flex" : ""}`}
                 >
                   {/* Thumbnail */}
                   <div className="relative bg-stone-100 overflow-hidden shrink-0
